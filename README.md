@@ -82,8 +82,8 @@ This project is built with a modern, scalable, and type-safe technology stack.
 -   **PDF Engine:** `pdfmake` & `html-to-pdfmake` for dynamic client-side resume generation.
 -   **AI Framework:** **Google Genkit** (Orchestration & Agentic Workflows).
 -   **Generative AI Models:** 
-    -   **Gemini 1.5 Pro:** Complex reasoning, PDF Vision analysis, and structured JSON generation.
-    -   **Gemini 1.5 Flash:** High-speed chat interactions and agentic reasoning.
+    -   **Gemini 3 Pro:** Complex reasoning, PDF Vision analysis, and structured JSON generation.
+    -   **Gemini 3 Flash:** High-speed chat interactions and agentic reasoning.
 -   **AI Tools:** Vertex AI Google Search Grounding & Google Cloud TTS.
 -   **Backend/Database:** Firebase Realtime Database & Firebase Authentication.
 -   **Deployment:** Firebase Hosting & App Hosting.
