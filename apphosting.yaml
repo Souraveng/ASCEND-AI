@@ -1,0 +1,54 @@
+# Specifies the version of the App Hosting schema.
+schemaVersion: v1alpha1
+
+# Specifies the runtime for the backend server.
+runtime: nodejs20
+
+# Defines the commands needed to build and run your application.
+build:
+  install: npm install
+  run: npm run build
+run:
+  start: npm start
+
+# ----------------- ADD THIS NEW SECTION ----------------- #
+# Exposes PUBLIC environment variables to BOTH the build and run environments.
+# These values are NOT secret and are safe to include here.
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: your-firebase-api-key
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: your-project-id.firebaseapp.com
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: your-firebase-project-id
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: your-project-id.firebasestorage.app
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: your-messaging-sender-id
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: your-firebase-app-id
+  - variable: NEXT_PUBLIC_FIREBASE_DATABASE_URL
+    value: https://your-project-id-default-rtdb.region.firebasedatabase.app
+  - variable: GNEWS_API_KEY
+    value: your-gnews-api-key
+# ----------------- END OF NEW SECTION ----------------- #
+
+# This section is for SERVER-SIDE SECRETS ONLY. It remains unchanged.
+secrets:
+  # - variable: ADZUNA_APP_ID
+  #   secret: ADZUNA_APP_ID
+  # - variable: ADZUNA_APP_KEY
+  #   secret: ADZUNA_APP_KEY
+  # - variable: GOOGLE_CLOUD_PROJECT_ID
+  #   secret: GOOGLE_CLOUD_PROJECT_ID
+  # - variable: GOOGLE_CLOUD_LOCATION
+  #   secret: GOOGLE_CLOUD_LOCATION
+
+# Defines how traffic is routed.
+serving:
+  staticDir: .next/static
+  rewrites:
+    - source: /_next/image**
+      function: imageOptimizer
+    - source: /**
+      function: server
